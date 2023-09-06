@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
 
     //Movement:
     [SerializeField]
-    private float movementSpeed = 3f; //A speed variable that allows us to change the player speed
+    private float movementSpeed = 1.0f; //A speed variable that allows us to change the player speed
     [SerializeField]
-    private float strafeSpeed = 1.5f; //A speed variable that allows us to change the player side movement
+    private float strafeSpeed = 0.5f; //A speed variable that allows us to change the player side movement
     [SerializeField]
     private float jumpForce = 3.0f; //A jump force variable that allows us to change the player jump strength
 
