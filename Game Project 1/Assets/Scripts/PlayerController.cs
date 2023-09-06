@@ -39,11 +39,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        playerMovement();
+        PlayerMovement();
     }
 
     //This is the player movement method. PLEASE DON'T TOUCH!!!!!!!!!!!
-    void playerMovement()
+    void PlayerMovement()
     {
         //Move Forward:
         if (Input.GetKey(moveForward))
