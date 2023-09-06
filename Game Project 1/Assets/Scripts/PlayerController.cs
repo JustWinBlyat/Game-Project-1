@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
 
     [Space]
 
+    //Rotation:
+    [SerializeField]
+    private float rotationSpeed = 200f; //A camera rotation speed that defines the speed at which the camera angle spins
+
+    [Space]
+
     //Keybinds:
     [SerializeField]
     private KeyCode jump = KeyCode.Space;
@@ -40,6 +46,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+        PlayerRotation();
     }
 
     //This is the player movement method. PLEASE DON'T TOUCH!!!!!!!!!!!
@@ -74,6 +81,12 @@ public class PlayerController : MonoBehaviour
         {
             SprintForward();
         }
+    }
+
+    void PlayerRotation()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal"); //Ensure that input manager is installed and setup properly in Unity!
+        transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
     }
 
     /************************
