@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private float jumpForce = 3.0f; //A jump force variable that allows us to change the player jump strength
 
     [Space]
+
     //Keybinds:
     [SerializeField]
     private KeyCode jump = KeyCode.Space;
@@ -36,7 +37,6 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement();
     }
-
 
     //This is the player movement method. PLEASE DON'T TOUCH!!!!!!!!!!!
     void playerMovement()
