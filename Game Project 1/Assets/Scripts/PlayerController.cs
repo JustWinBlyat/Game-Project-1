@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
 
     //Movement:
     [SerializeField]
-    private float speed = 5.0f; //A speed variable that allows us to change the player speed
-
+    private float movementSpeed = 3.5f; //A speed variable that allows us to change the player speed
+    [SerializeField]
+    private float strafeSpeed = 1.5f; //A speed variable that allows us to change the player side movement
     [SerializeField]
     private float jumpForce = 3.0f; //A jump force variable that allows us to change the player jump strength
 
@@ -26,8 +27,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private KeyCode moveRight = KeyCode.D;
 
-
-
     void Start()
     {
         Debug.Log("Game has begun!");
@@ -35,9 +34,28 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //Move Forward:
         if (Input.GetKey(moveForward))
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+        }
+
+        //Move Backward:
+        if (Input.GetKey(moveBackward))
+        {
+            transform.Translate(Vector3.back * Time.deltaTime * movementSpeed);
+        }
+
+        //Move Left:
+        if (Input.GetKey(moveLeft))
+        {
+            transform.Translate(Vector3.left * Time.deltaTime * strafeSpeed);
+        }
+
+        //Move Right:
+        if (Input.GetKey(moveRight))
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * strafeSpeed);
         }
     }
 }
