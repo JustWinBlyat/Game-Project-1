@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     //Movement:
     [SerializeField]
-    private float movementSpeed = 3.5f; //A speed variable that allows us to change the player speed
+    private float movementSpeed = 3f; //A speed variable that allows us to change the player speed
     [SerializeField]
     private float strafeSpeed = 1.5f; //A speed variable that allows us to change the player side movement
     [SerializeField]
@@ -33,6 +33,13 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
+    {
+        playerMovement();
+    }
+
+
+    //This is the player movement method. PLEASE DON'T TOUCH!!!!!!!!!!!
+    void playerMovement()
     {
         //Move Forward:
         if (Input.GetKey(moveForward))
