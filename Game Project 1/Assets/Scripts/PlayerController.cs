@@ -4,13 +4,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //Here are all the variables for our PlayerController Class:
+
+    //Movement:
+    [SerializeField]
+    private float speed = 5.0f; //A speed variable that allows us to change the player speed
+
+    [SerializeField]
+    private float jumpForce = 3.0f; //A jump force variable that allows us to change the player jump strength
+
+    [Space]
+    //Keybinds:
+    [SerializeField]
+    private KeyCode jump = KeyCode.Space;
+    [SerializeField]
+    private KeyCode moveForward = KeyCode.W;
+    [SerializeField]
+    private KeyCode moveBackward = KeyCode.S;
+    [SerializeField]
+    private KeyCode moveLeft = KeyCode.A;
+    [SerializeField]
+    private KeyCode moveRight = KeyCode.D;
+
+
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
