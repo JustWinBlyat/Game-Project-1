@@ -30,11 +30,14 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        Debug.Log("Game has begun!");
     }
 
     void Update()
     {
-        
+        if (Input.GetKey(moveForward))
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        }
     }
 }
