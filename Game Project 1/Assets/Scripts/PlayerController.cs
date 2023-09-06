@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float sprintSpeed = 3f; //A speed variable that allows us to change the players spriting speed
     [SerializeField]
+    public float moveSpeed = 5f;  //A move variable that allows us to change the players speed in relation to the camera POV
+    [SerializeField]
     private float strafeSpeed = 1f; //A speed variable that allows us to change the player's side movement
     [SerializeField]
     private float jumpForce = 3.0f; //A jump force variable that allows us to change the player's jump strength
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMovement();
         MouseCursorState();
+        RelativeMovement();
     }
 
     //This is the player movement method. PLEASE DON'T TOUCH!!!!!!!!!!!
@@ -84,6 +87,28 @@ public class PlayerController : MonoBehaviour
         {
             SprintForward();
         }
+    }
+
+    void RelativeMovement()
+    {
+        // Get the input for movement along the x and z axes
+        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        direction.Normalize();
+
+        // Get the forward and right direction vectors of the camera
+        Vector3 cameraForward = Camera.main.transform.forward;
+        cameraForward.y = 0;
+        cameraForward.Normalize();
+
+        Vector3 cameraRight = Camera.main.transform.right;
+        cameraRight.y = 0;
+        cameraRight.Normalize();
+
+        // Calculate the player's movement direction relative to the camera's orientation
+        Vector3 moveDirection = cameraForward * direction.z + cameraRight * direction.x;
+
+        // Move the player in the calculated direction
+        transform.Translate(moveDirection * Time.deltaTime * moveSpeed, Space.World);
     }
 
     //This is a cursor function that controls the cursor visibility during gameplay
