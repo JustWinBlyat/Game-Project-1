@@ -37,9 +37,18 @@ public class PlayerController : MonoBehaviour
     private KeyCode moveRight = KeyCode.D;
     [SerializeField]
     private KeyCode sprintKey = KeyCode.LeftShift;
+    [SerializeField]
+    private KeyCode lockState = KeyCode.Escape;
+
+    [Space]
+
+    //States:
+    [SerializeField]
+    private bool isCursorLocked = true; //A boolean that tracks the mouse cursor state
 
     void Start()
     {
+        //Making sure the game starts
         Debug.Log("Game has begun!");
     }
 
@@ -47,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMovement();
         PlayerRotation();
+        MouseCursorState();
     }
 
     //This is the player movement method. PLEASE DON'T TOUCH!!!!!!!!!!!
@@ -83,10 +93,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //This is the player rotation method. PLEASE DON'T TOUCH!!!!!!!!!
     void PlayerRotation()
     {
         float horizontalInput = Input.GetAxis("Horizontal"); //Ensure that input manager is installed and setup properly in Unity!
         transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
+    }
+
+    void MouseCursorState()
+    {
+        if (Input.GetKey(lockState))
+        {
+            isCursorLocked = !isCursorLocked;
+
+            if (isCursorLocked)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
     }
 
     /************************
