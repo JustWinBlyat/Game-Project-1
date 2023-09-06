@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
     }
 
+    //This is a cursor function that controls the cursor visibility during gameplay
     void MouseCursorState()
     {
         if (Input.GetKey(lockState))

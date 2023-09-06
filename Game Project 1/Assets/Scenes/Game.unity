@@ -273,7 +273,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &271802235
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -354,12 +354,15 @@ MonoBehaviour:
   sprintSpeed: 3
   strafeSpeed: 1
   jumpForce: 3
+  rotationSpeed: 200
   jump: 32
   moveForward: 119
   moveBackward: 115
   moveLeft: 97
   moveRight: 100
   sprintKey: 304
+  lockState: 27
+  isCursorLocked: 1
 --- !u!1 &503508904
 GameObject:
   m_ObjectHideFlags: 0
