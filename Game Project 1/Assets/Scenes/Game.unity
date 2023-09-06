@@ -350,14 +350,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3219d148805dbad49988152ca9c98205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  strafeSpeed: 2
+  walkingSpeed: 1.5
+  sprintSpeed: 3
+  strafeSpeed: 1
   jumpForce: 3
   jump: 32
   moveForward: 119
   moveBackward: 115
   moveLeft: 97
   moveRight: 100
+  sprintKey: 304
 --- !u!1 &503508904
 GameObject:
   m_ObjectHideFlags: 0

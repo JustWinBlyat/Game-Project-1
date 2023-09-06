@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour
 
     //Movement:
     [SerializeField]
-    private float movementSpeed = 1.0f; //A speed variable that allows us to change the player speed
+    private float walkingSpeed = 1.5f; //A speed variable that allows us to change the player's walking speed
     [SerializeField]
-    private float strafeSpeed = 0.5f; //A speed variable that allows us to change the player side movement
+    private float sprintSpeed = 3f; //A speed variable that allows us to change the players spriting speed
     [SerializeField]
-    private float jumpForce = 3.0f; //A jump force variable that allows us to change the player jump strength
+    private float strafeSpeed = 1f; //A speed variable that allows us to change the player's side movement
+    [SerializeField]
+    private float jumpForce = 3.0f; //A jump force variable that allows us to change the player's jump strength
 
     [Space]
 
@@ -27,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private KeyCode moveLeft = KeyCode.A;
     [SerializeField]
     private KeyCode moveRight = KeyCode.D;
+    [SerializeField]
+    private KeyCode sprintKey = KeyCode.LeftShift;
 
     void Start()
     {
@@ -44,25 +48,70 @@ public class PlayerController : MonoBehaviour
         //Move Forward:
         if (Input.GetKey(moveForward))
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+            MoveForward();
         }
 
         //Move Backward:
         if (Input.GetKey(moveBackward))
         {
-            transform.Translate(Vector3.back * Time.deltaTime * movementSpeed);
+            MoveBackward();
         }
 
         //Move Left:
         if (Input.GetKey(moveLeft))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * strafeSpeed);
+            MoveLeft();
         }
 
         //Move Right:
         if (Input.GetKey(moveRight))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * strafeSpeed);
+            MoveRight();
         }
+
+        //Sprint Forward:
+        if (Input.GetKey(moveForward) && Input.GetKey(sprintKey))
+        {
+            SprintForward();
+        }
+    }
+
+    /************************
+    Movement Functions Here:
+    - Forward
+    - Backward
+    - Side (Left/Right)
+    - Sprint
+    - Jump
+    *************************/
+
+    void MoveForward()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * walkingSpeed);
+    }
+
+    void MoveBackward()
+    {
+        transform.Translate(Vector3.back * Time.deltaTime * walkingSpeed);
+    }
+
+    void MoveLeft()
+    {
+        transform.Translate(Vector3.left * Time.deltaTime * strafeSpeed);
+    }
+
+    void MoveRight()
+    {
+        transform.Translate(Vector3.right * Time.deltaTime * strafeSpeed);
+    }
+
+    void SprintForward()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * sprintSpeed);
+    }
+
+    void Jump()
+    {
+
     }
 }
