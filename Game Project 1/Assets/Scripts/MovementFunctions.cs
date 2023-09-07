@@ -29,8 +29,8 @@ public class MovementFunctions : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * sprintSpeed);
     }
 
-    //void Jump()
-    //{
-    //    //Jumping Logic Here Sir!
-    //}
+    public static void Jump(Transform transform, float jumpForce)
+    {
+        transform.Translate(Vector3.up * Time.deltaTime * jumpForce);
+    }
 }

@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float strafeSpeed = 1f; //A speed variable that allows us to change the player's side movement
     [SerializeField]
-    private float jumpForce = 3.0f; //A jump force variable that allows us to change the player's jump strength
+    private float jumpForce = 5.0f; //A jump force variable that allows us to change the player's jump strength
 
     [Space]
 
@@ -79,5 +79,10 @@ public class PlayerController : MonoBehaviour
         {
             MovementFunctions.SprintForward(transform, sprintSpeed);
         }
+
+        //if (Input.GetKey(jump))
+        //{
+        //    MovementFunctions.Jump(transform, jumpForce);
+        //}
     }
 }
