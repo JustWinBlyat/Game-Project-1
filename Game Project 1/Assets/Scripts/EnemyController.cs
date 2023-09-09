@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     //Enemy Movement:
     [SerializeField]
-    private float speed = 3.0f;
+    public float speed = 3.0f;
 
     //Enemy Component:
     private Rigidbody enemyRigidbody;

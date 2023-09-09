@@ -5,7 +5,7 @@ using UnityEngine;
 public class CentralRotation : MonoBehaviour
 {
     [SerializeField]
-    private float sensitivity = 50f; //Speed at which the center rotates.
+    public float sensitivity = 50f; //Speed at which the center rotates.
 
     void Start()
     {

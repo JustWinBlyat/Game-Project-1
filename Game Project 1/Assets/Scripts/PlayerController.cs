@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     //Player Movement
     [SerializeField]
-    private float speed = 5.0f;
+    public float speed = 3.0f;
     //Player Component
     private Rigidbody playerRigidbody;
     private GameObject focalPoint;
