@@ -27,7 +27,8 @@ public class EnemyController : MonoBehaviour
 
     void ChasePlayer()
     {
-        enemyRigidbody.AddForce(((player.transform.position - transform.position).normalized) * speed);
+        Vector3 lookDirection = ((player.transform.position - transform.position).normalized);
+        enemyRigidbody.AddForce(lookDirection * speed);
     }
 
     //Gets enemy rigidbody component
