@@ -25,12 +25,6 @@ public class PlayerController : MonoBehaviour
         MoveHorizontal();
     }
 
-    //Gets the object's rigidbody component and calls it to the Start() method.
-    void GetRigidbody()
-    {
-        playerRigidbody = GetComponent<Rigidbody>();
-    }
-
     void MoveVertical()
     {
         //Make sure the input manager name PlayerVertical is found.
@@ -50,5 +44,11 @@ public class PlayerController : MonoBehaviour
     void GetFocalPoint()
     {
         focalPoint = GameObject.Find("Center");
+    }
+
+    //Gets the object's rigidbody component and calls it to the Start() method.
+    void GetRigidbody()
+    {
+        playerRigidbody = GetComponent<Rigidbody>();
     }
 }
