@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         MoveVertical();
+        MoveHorizontal();
     }
 
     //Gets the object's rigidbody component and calls it to the Start() method.
@@ -34,9 +35,16 @@ public class PlayerController : MonoBehaviour
     {
         //Make sure the input manager name PlayerVertical is found.
         //This is meant to separate the Camera's movement binding from the player's.
-        float forwardInput = Input.GetAxis("PlayerVertical");
+        float verticalInput = Input.GetAxis("PlayerVertical");
     
-        playerRigidbody.AddForce(focalPoint.transform.forward * forwardInput * speed);
+        playerRigidbody.AddForce(focalPoint.transform.forward * verticalInput * speed);
+    }
+
+    void MoveHorizontal()
+    {
+        float horizontalInput = Input.GetAxis("PlayerHorizontal");
+
+        playerRigidbody.AddForce(focalPoint.transform.right * horizontalInput * speed);
     }
 
     void GetFocalPoint()
