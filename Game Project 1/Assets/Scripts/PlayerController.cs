@@ -9,10 +9,13 @@ public class PlayerController : MonoBehaviour
     private float speed = 5.0f;
     //Player Component
     private Rigidbody playerRigidbody;
+    private GameObject focalPoint;
+
     // Start is called before the first frame update
     void Start()
     {
         GetRigidbody();
+        GetFocalPoint();
     }
 
     // Update is called once per frame
@@ -33,6 +36,11 @@ public class PlayerController : MonoBehaviour
         //This is meant to separate the Camera's movement binding from the player's.
         float forwardInput = Input.GetAxis("PlayerVertical");
     
-        playerRigidbody.AddForce(Vector3.forward * forwardInput * speed);
+        playerRigidbody.AddForce(focalPoint.transform.forward * forwardInput * speed);
+    }
+
+    void GetFocalPoint()
+    {
+        focalPoint = GameObject.Find("Center");
     }
 }
