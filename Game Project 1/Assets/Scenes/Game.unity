@@ -346,8 +346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 2043840783946625963, guid: 11b2d480cbdf4d543855b57294e71f39, type: 3}
   spawnInterval: 5
-  xRange: 1
-  zRange: 1
+  xRange: 3
+  zRange: 3
   yPosition: 0.2
 --- !u!1 &254057067
 GameObject:
